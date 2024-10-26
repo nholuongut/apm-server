@@ -1,0 +1,8 @@
+{
+    "accepted": 0,
+    "errors": [
+        {
+            "message": "data decoding error: gzip: invalid header"
+        }
+    ]
+}

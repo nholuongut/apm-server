@@ -1,0 +1,3 @@
+{
+    "error": "authentication failed: missing or improperly formatted Authorization header: expected 'Authorization: Bearer secret_token' or 'Authorization: ApiKey base64(API key ID:API key)'"
+}

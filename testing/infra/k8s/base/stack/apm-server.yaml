@@ -1,0 +1,37 @@
+apiVersion: apm.k8s.elastic.co/v1
+kind: ApmServer
+metadata:
+  name: apm-server
+spec:
+  version: 8.10.0-439345ab-SNAPSHOT
+  count: 1
+  http:
+    tls:
+      selfSignedCertificate:
+        disabled: true
+  config:
+    apm-server:
+      pprof:
+        enabled: true
+      expvar:
+        enabled: true
+    logging:
+      level: debug
+    output:
+      elasticsearch:
+        username: admin
+        password: changeme
+  elasticsearchRef:
+    name: elasticsearch
+    namespace: default
+  podTemplate:
+    spec:
+      containers:
+        - name: apm-server
+          resources:
+            limits:
+              cpu: 1
+              memory: "2Gi"
+            requests:
+              cpu: 1
+              memory: "1Gi"
